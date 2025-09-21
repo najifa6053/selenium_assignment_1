@@ -25,6 +25,58 @@ def test_id(driver):
     driver.quit()
     
     
+#Using NAME
+def test_name(driver):
+    driver.get("https://www.saucedemo.com/")
+    time.sleep(2)
+    driver.find_element(By.NAME, "user-name").send_keys("standard_user")
+    time.sleep(2)
+    driver.find_element(By.NAME, "password").send_keys("secret_sauce")
+    time.sleep(2)
+    driver.find_element(By.NAME, "login-button").click()
+    time.sleep(2)
+    driver.quit()
+    
+    
+#Using CLASS NAME
+def test_class_name(driver):
+    driver.get("https://www.saucedemo.com/")
+    time.sleep(2)
+    driver.find_element(By.CLASS_NAME, "input_error form_input").send_keys("standard_user")
+    time.sleep(2)
+    driver.find_element(By.CLASS_NAME, "input_error form_input").send_keys("secret_sauce")
+    time.sleep(2)
+    driver.find_element(By.CLASS_NAME, "submit-button btn_action").click()
+    time.sleep(2)
+    driver.quit()
+    
+#Using TAG NAME
+def test_tag_name(driver):
+    driver.get("https://www.saucedemo.com/")
+    time.sleep(2)
+    driver.find_element(By.TAG_NAME, "input").send_keys("standard_user")
+    time.sleep(2)
+    driver.find_element(By.TAG_NAME, "input").send_keys("secret_sauce")
+    time.sleep(2)
+    driver.find_element(By.TAG_NAME, "input").click()
+    time.sleep(2)
+    driver.quit()
+    
+#Using XPATH Id
+def test_xpath_id(driver):
+    driver.get("https://www.saucedemo.com/")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//*[@id="user-name"]').send_keys("standard_user")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//*[@id="password"]').send_keys("secret_sauce")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//*[@id="login-button"]').click()
+    time.sleep(2)
+    driver.quit()
+    
 if __name__ == "__main__":
     driver = setup_driver()
-    test_id(driver)
+    #test_id(driver)
+    #test_name(driver)
+    #test_class_name(driver)
+    test_tag_name(driver)
