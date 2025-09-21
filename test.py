@@ -66,11 +66,36 @@ def test_tag_name(driver):
 def test_xpath_id(driver):
     driver.get("https://www.saucedemo.com/")
     time.sleep(2)
-    driver.find_element(By.XPATH, '//*[@id="user-name"]').send_keys("standard_user")
+    driver.find_element(By.XPATH, '//input[@id="user-name"]').send_keys("standard_user")
     time.sleep(2)
-    driver.find_element(By.XPATH, '//*[@id="password"]').send_keys("secret_sauce")
+    driver.find_element(By.XPATH, '//input[@id="password"]').send_keys("secret_sauce")
     time.sleep(2)
-    driver.find_element(By.XPATH, '//*[@id="login-button"]').click()
+    driver.find_element(By.XPATH, '//input[@id="login-button"]').click()
+    time.sleep(2)
+    driver.quit()
+    
+#Using XPATH Name
+def test_xpath_name(driver):
+    driver.get("https://www.saucedemo.com/")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//input[@name="user-name"]').send_keys("standard_user")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//input[@name="password"]').send_keys("secret_sauce")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//input[@name="login-button"]').click()
+    time.sleep(2)
+    driver.quit()
+    
+    
+#Using XPATH Class Name
+def test_xpath_class_name(driver):
+    driver.get("https://www.saucedemo.com/")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//input[@class="input_error form_input"]').send_keys("standard_user")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//input[@class="input_error form_input"]').send_keys("secret_sauce")
+    time.sleep(2)
+    driver.find_element(By.XPATH, '//input[@class="submit-button btn_action"]').click()
     time.sleep(2)
     driver.quit()
     
@@ -79,4 +104,7 @@ if __name__ == "__main__":
     #test_id(driver)
     #test_name(driver)
     #test_class_name(driver)
-    test_tag_name(driver)
+    #test_tag_name(driver)
+    #test_xpath_id(driver)
+    #test_xpath_name(driver)
+    test_xpath_class_name(driver)
